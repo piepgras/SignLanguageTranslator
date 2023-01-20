@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import Login from './views/Login';
-import Profile from './views/Profile';
-import Translator from './views/Translator';
+import Login from './views/login';
+import Profile from './views/profile';
+import Translator from './views/translator';
 
 import {
   BrowserRouter,
