@@ -1,11 +1,13 @@
 import TranslateForm from "../compontents/translate/TranslateForm"
+import withAuth from "../hoc/withAuth"
 
 const Translate = () => {
-    return (<>
-        <h1>Translate</h1>
-        <TranslateForm />
-    </>
+    return (
+        <>
+            <h1>Translation</h1>
+            <TranslateForm />
+        </>
     )
 }
 
-export default Translate
+export default withAuth(Translate)

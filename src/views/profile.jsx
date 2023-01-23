@@ -1,4 +1,5 @@
 import ProfileForm from "../compontents/profile/ProfileForm"
+import withAuth from "../hoc/withAuth"
 
 const Profile = () => {
     return (
@@ -9,4 +10,4 @@ const Profile = () => {
     )
 }
 
-export default Profile
+export default withAuth(Profile)

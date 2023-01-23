@@ -1,17 +1,25 @@
 import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import { loginUser } from '../../api/user'
 import { STORAGE_KEY_USER } from '../../const/storageKey'
 import { storageSave } from '../../utils/storage'
-
-
+import { useUser} from '../../context/UserContext'
 
 function LoginForm() {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
+    const {user,setUser} =useUser()// ContextApi
+    const navigate = useNavigate()
 
     const [loading, setLoading] = useState(false)
     const [apiErro, setApiError] = useState(null)
+    
+    useEffect(()=>{
+        if (user !==null) {
+          navigate('translate')
+        }
+      },[user,navigate])
 
     const onSubmit = async ({ username }) => {
 
@@ -26,7 +34,7 @@ function LoginForm() {
             // user get saved in local storage
             storageSave(STORAGE_KEY_USER, userResponse) 
             // UserContext get updated
-            //setUser(userResponse) 
+            setUser(userResponse) 
         }
         setLoading(false)
     }
@@ -44,7 +52,6 @@ function LoginForm() {
         if (errors.username.type === 'minLength') {
             return <span>User name is too short ()!</span>
         }
-
 
     })()
 
