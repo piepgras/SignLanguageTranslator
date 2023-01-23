@@ -1,6 +1,7 @@
 const TranslateForm = () => {
     return (
         <>
+        <input />
         </>
     )
 }
