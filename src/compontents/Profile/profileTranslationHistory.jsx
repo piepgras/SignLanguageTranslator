@@ -1,4 +1,4 @@
-import ProfileTranslationHistoryItem from "./ProfileTranslationHistoryItem"
+import ProfileTranslationHistoryItem from "./profileTranslationHistoryItem"
 
 const ProfileTranslationHistory = ({histories}) => {
     
