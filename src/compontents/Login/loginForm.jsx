@@ -1,6 +1,10 @@
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { loginUser } from '../../api/user'
+import { STORAGE_KEY_USER } from '../../const/storageKey'
+import { storageSave } from '../../utils/storage'
+
+
 
 function LoginForm() {
 
@@ -13,11 +17,17 @@ function LoginForm() {
 
         setLoading(true)
 
-        const [error, user] = await loginUser(username)
+        const [error, userResponse] = await loginUser(username)
+        if (error !== null) {
+            setApiError(error)
+        }
 
-        console.log('Error: ', error)
-        console.log('User: ', user)
-
+        if (userResponse !== null) {    
+            // user get saved in local storage
+            storageSave(STORAGE_KEY_USER, userResponse) 
+            // UserContext get updated
+            //setUser(userResponse) 
+        }
         setLoading(false)
     }
 
@@ -42,7 +52,7 @@ function LoginForm() {
         <div className=''>
             <form onSubmit={handleSubmit(onSubmit)} className="">
 
-                <input className="control form-control" type="text" {...register("username", { required: true,minLength:3 })} placeholder="What is your name?" />
+                <input className="control form-control" type="text" {...register("username", { required: true, minLength: 3 })} placeholder="What is your name?" />
                 <button className='btn btn-primary' type="text">Login</button>
                 {errorMessage}
                 {loading && <p>Logging in ...</p>}
