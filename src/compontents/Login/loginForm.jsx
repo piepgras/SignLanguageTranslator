@@ -1,3 +1,4 @@
+import { useState,useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { loginUser } from '../../api/user'
 
@@ -5,20 +6,47 @@ function LoginForm() {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
 
+    const [loading, setLoading] = useState(false)
+    const [apiErro, setApiError] = useState(null)
+
     const onSubmit = async ({ username }) => {
+
+        setLoading(true)
+
         const [error, user] = await loginUser(username)
+
         console.log('Error: ', error)
         console.log('User: ', user)
+
+        setLoading(false)
     }
+
+    const errorMessage = (() => {
+
+        if (!errors.username) {
+            return null
+        }
+
+        if (errors.username.type === 'required') {
+            return <span>User name required!</span>
+        }
+
+        if (errors.username.type === 'minLength') {
+            return <span>User name is too short ()!</span>
+        }
+
+
+    })()
 
     return (
         <div className=''>
             <form onSubmit={handleSubmit(onSubmit)} className="">
 
-                <input className="control form-control" type="text" {...register("username", { required: true })} placeholder="What is your name?" />
+                <input className="control form-control" type="text" {...register("username", { required: true,minLength:3 })} placeholder="What is your name?" />
                 <button className='btn btn-primary' type="text">Login</button>
-
-                {(errors.username && errors.username.type === 'required') && <span className='m-2'>User name required!</span>}
+                {errorMessage}
+                {loading && <p>Logging in ...</p>}
+                {apiErro && <p> {apiErro}</p>}
 
             </form>
         </div>
