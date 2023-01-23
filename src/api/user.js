@@ -1,8 +1,8 @@
-import {createHeader} from './index'
+import {createHeader} from '.'
 const API_URL = process.env.REACT_APP_API_URL
 
 
-const checkForhUser = async (username) => {
+const checkForUser = async (username) => {
     try {
         const response = await fetch(`${API_URL}?username=${username}`)
         if (!response.ok) {
@@ -24,13 +24,12 @@ const createUser = async (username) => {
             method: 'POST',
             headers: createHeader(),
             body: JSON.stringify({username: username, translations: [] })
-
         })
+
         if (!response.ok) {
-            throw new Error(`Could not create user with username ${username}`)
+            throw new Error(`Could not create user with username ` + username)
         }
         const data = await response.json()
-
         return [null, data]
     } catch (error) {
         return [error.message, null]
@@ -39,7 +38,7 @@ const createUser = async (username) => {
 
 export const loginUser = async (username) => {
   
-    const [fetchError, user] = await checkForhUser(username)
+    const [fetchError, user] = await checkForUser(username)
 
     if (fetchError !== null) {
         return [fetchError, null]
