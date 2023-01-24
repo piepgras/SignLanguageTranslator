@@ -16,7 +16,7 @@ const {user} = useUser()
                     <NavLink to="/translation">Translation</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/Profile">Profile</NavLink>  
+                    <NavLink to="/profile">Login</NavLink>  
                 </li>
             </ul>
             }
