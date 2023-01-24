@@ -1,16 +1,18 @@
 import { createHeader } from "./index";
-import { STORAGE_KEY_USER } from "../const/storageKeys";
-import { useUser } from "../state/UserState";
 
 const API_URL = process.env.REACT_APP_API_URL
 
-export const addTranslation = async (body) => {
+export const addTranslation = async (user, translation) => {
     try {
-        console.log(`${API_URL}?username=${useUser}`)
-        await fetch(`${API_URL}?username=${STORAGE_KEY_USER}`, {
-            method: 'POST',
+        console.log(`${API_URL}?username=${user.username}`)
+        await fetch(`${API_URL}?username=${user.username}`, {
+            method: 'PATCH',
             headers: createHeader(),
-            body: JSON.stringify({translations: [body]})
+            body: JSON.stringify({
+                username: user.username,
+                translations: [...user.translations, translation]
+                
+            })
         })
     } catch (error) {
         return [error.message, null]
