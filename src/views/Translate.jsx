@@ -15,7 +15,6 @@ const Translate = () => {
         <TranslateActions />
         <TranslateHistory translations={user.translations}/>
         <TranslateForm />
-        <TranslateButton />
     </>
     )
 }

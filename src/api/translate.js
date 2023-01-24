@@ -14,9 +14,7 @@ export const deleteTranslation = async (translation) => {
     translation.status = "inactive";
     const response = await fetch(`${API_URL}` + translation.id, {
         method: 'PATCH',
-        headers: {
-            'Content-type': 'application/json'
-        },
+        headers: createHeader(),
         body: JSON.stringify(translation)
     })
     const data = await response.json()
