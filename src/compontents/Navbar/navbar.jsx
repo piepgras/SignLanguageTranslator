@@ -1,13 +1,17 @@
 import { NavLink } from "react-router-dom"
+import {useUser} from "../../context/UserContext"
 
 const Navbar = () => {
+const {user} = useUser()
+
     return (
         <nav>
             <ul>
                 <li>Translations</li>
             </ul>
 
-            <ul>
+            { user !== null && 
+                <ul>
                 <li>
                     <NavLink to="/translation">Translation</NavLink>
                 </li>
@@ -15,6 +19,9 @@ const Navbar = () => {
                     <NavLink to="/Profile">Profile</NavLink>  
                 </li>
             </ul>
+            }
+
         </nav>
     )
 }
+export default Navbar

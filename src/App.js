@@ -2,7 +2,7 @@ import './App.css';
 import Login from './views/login';
 import Profile from './views/Profile';
 import Translator from './views/translator';
-
+import Navbar from './compontents/Navbar/navbar'
 import {
   BrowserRouter,
   Routes,
@@ -14,7 +14,8 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Routes>
+        <Navbar/>
+          <Routes>
           <Route path="/" element={ <Login/> } />
           <Route path="/translator" element={ <Translator/> } />
           <Route path="/profile" element={ <Profile/> } />
