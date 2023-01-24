@@ -1,8 +1,8 @@
 import ProfileActions from "../compontents/Profile/profileActions"
 import ProfileHeader from "../compontents/Profile/profileHeader"
-import ProfileTranslationHistory from "../compontents/Profile/profileTranslationHistory"
-import withAuth from "../hoc/withAuth"
-import { useUser } from "../context/userContext"
+import ProfileTranslationHistory from "../compontents/Profile/ProfileTranslationHistory"
+//import withAuth from "../hoc/withAuth"
+//import { useUser } from "../context/userContext"
 
 const Profile = () => {
 

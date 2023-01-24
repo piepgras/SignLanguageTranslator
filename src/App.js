@@ -2,7 +2,7 @@ import './App.css';
 import Login from './views/Login';
 import Profile from './views/Profile';
 import Translator from './views/Translator';
-
+import Navbar from './compontents/Navbar/navbar';
 import {
   BrowserRouter,
   Routes,
@@ -10,10 +10,12 @@ import {
 } from 'react-router-dom'
 
 function App() {
+  
   return (
     <BrowserRouter>
       <div className="App">
-        <Routes>
+        <Navbar/>
+          <Routes>
           <Route path="/" element={ <Login/> } />
           <Route path="/translator" element={ <Translator/> } />
           <Route path="/profile" element={ <Profile/> } />
