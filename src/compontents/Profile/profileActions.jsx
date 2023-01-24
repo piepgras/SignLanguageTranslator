@@ -1,12 +1,18 @@
 import { Link } from "react-router-dom";
+import { useUser } from "../../context/UserContext";
+import { storageDelete } from "../../utils/storage";
+import { STORAGE_KEY_USER } from "../../const/storageKeys";
 
-const ProfileActions = ({logoutUser}) => {
+const ProfileActions = () => {
+
+    const {setUser} = useUser()
+    
     const handleLogoutClick = () => {
         if ( window.confirm("Are you sure you want to logout?")){
-            logoutUser();
+            storageDelete(STORAGE_KEY_USER)
+        setUser(null)
         }
-
-        // Send an event to the parent!
+        
     }
 
     return (
