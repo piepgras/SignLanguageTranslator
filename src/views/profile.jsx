@@ -1,4 +1,4 @@
-import ProfileForm from "../compontents/Profile/profileForm"
+import ProfileForm from "../compontents/Profile/ProfileForm"
 
 const Profile = () => {
     return (
