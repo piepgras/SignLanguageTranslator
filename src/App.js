@@ -1,6 +1,6 @@
 import './App.css';
 import Login from './views/login';
-import Profile from './views/profile';
+import Profile from './views/Profile';
 import Translator from './views/translator';
 
 import {
