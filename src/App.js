@@ -1,13 +1,8 @@
 import './App.css';
-import Login from './views/login';
-import Profile from './views/Profile';
-import Translator from './views/translator';
-
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './views/Login';
+import Profile  from './views/Profile';
+import Translate from './views/Translate';
 
 function App() {
   
@@ -15,9 +10,9 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={ <Login/> } />
-          <Route path="/translator" element={ <Translator/> } />
-          <Route path="/profile" element={ <Profile/> } />
+          <Route path="/" element={<Login/>}/>        
+          <Route path="/translate" element={<Translate/>}/>
+          <Route path="/profile" element={<Profile/>}/>
         </Routes>
       </div>
     </BrowserRouter>
