@@ -4,7 +4,7 @@ import ProfileTranslationHistory from "../compontents/profile/ProfileTranslation
 import withAuth from "../hoc/withAuth"
 import { useUser } from "../context/UserContext"
 import ProfileClearTranslationsHistoryButton from "../compontents/profile/ProfileClearTranslationsHistoryButton"
-import ProfilesForm from "../compontents/profile/ProfilesForm"
+import ProfileForm from "../compontents/profile/ProfileForm"
 import ProfileTranslationsHistoryButton from "../compontents/profile/ProfileTranslationsHistoryButton"
 //import withAuth from "../hoc/withAuth"
 //import { useUser } from "../context/userContext"
@@ -20,17 +20,15 @@ const Profile = () => {
     user.translations.forEach(translation => {
         console.log(translation)
 
-    const handleTranslationHistoryButtonClicked = (translationId) => {
-        console.log(translationId)
-        const selectedTranslation = TRANSLATIONS.find(translation => translation.id === translationId)
-    }
+        const handleTranslationHistoryButtonClicked = (translationId) => {
+            console.log(translationId)
+            const selectedTranslation = TRANSLATIONS.find(translation => translation.id === translationId)
+        }
 
-    const availableTranslations = TRANSLATIONS.map(translations => {
-    return <ProfileTranslationsHistoryButton key={translations.id}
-            handleTranslationButtonClicked={ handleTranslationHistoryButtonClicked}/>
-    })
-
-     
+        const availableTranslations = TRANSLATIONS.map(translations => {
+        return <ProfileTranslationsHistoryButton key={translations.id}
+                handleTranslationButtonClicked={ handleTranslationHistoryButtonClicked}/>
+        })
     });
 
     // return (
@@ -59,7 +57,7 @@ const Profile = () => {
         <ProfileActions/>
         <section id="translations-history">{"availableTranslations"}</section>
         <selection id="translation-notes">
-            <ProfilesForm/>
+            <ProfileForm/>
         </selection>
         <h4>Summary:</h4>
         {user.translations && <p>Selected translation: { }</p>}

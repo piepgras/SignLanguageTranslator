@@ -33,8 +33,6 @@ const LoginForm = () => {
             setUser(u)
         }
         setLoading(false);
-        console.log('Error: ', error)
-        console.log('User: ', u)
     };
 
     return (

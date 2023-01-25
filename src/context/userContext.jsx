@@ -11,13 +11,11 @@ export const useUser = () => {
 }
 // Provider -> managing the state
 const UserProvider = ({children}) => {
-    
     const [user, setUser] = useState(storageRead(STORAGE_KEY_USER));
+    const context = { user, setUser}
 
-    const state = { user, setUser}
     return (
-
-        <UserContext.Provider value={ state }>
+        <UserContext.Provider value={ context }>
             {children}
         </UserContext.Provider>
     )
