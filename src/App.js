@@ -1,18 +1,24 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './views/Login';
-import Profile  from './views/Profile';
-import Translate from './views/Translate';
+import Profile from './views/Profile';
+import Translator from './views/Translator';
+import Navbar from './compontents/Navbar/navbar'
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from 'react-router-dom'
 
 function App() {
   
   return (
     <BrowserRouter>
       <div className="App">
-        <Routes>
-          <Route path="/" element={<Login/>}/>        
-          <Route path="/translate" element={<Translate/>}/>
-          <Route path="/profile" element={<Profile/>}/>
+        <Navbar/>
+          <Routes>
+          <Route path="/" element={ <Login/> } />
+          <Route path="/translator" element={ <Translator/> } />
+          <Route path="/profile" element={ <Profile/> } />
         </Routes>
       </div>
     </BrowserRouter>
