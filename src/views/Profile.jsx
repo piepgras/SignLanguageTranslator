@@ -6,7 +6,6 @@ import { useUser } from "../context/UserContext"
 import ProfileClearTranslationsHistoryButton from "../compontents/Profile/ProfileClearTranslationsHistoryButton"
 import ProfilesForm from "../compontents/Profile/ProfilesForm"
 import ProfileTranslationsHistoryButton from "../compontents/Profile/ProfileTranslationsHistoryButton"
-import { useState } from "react"
 
 const Profile = () => {
 
@@ -18,7 +17,7 @@ const Profile = () => {
 
     user.translations.forEach(translation => {
         console.log(translation)
-        
+
     const handleTranslationHistoryButtonClicked = (translationId) => {
         console.log(translationId)
         const selectedTranslation = TRANSLATIONS.find(translation => translation.id === translationId)
