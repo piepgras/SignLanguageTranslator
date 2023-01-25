@@ -1,7 +1,7 @@
 import { useState } from "react"
 import TranslateActions from "./TranslateActions";
 import { addTranslation } from "../../api/translate";
-import { useUser } from "../../context/UserContext";
+import { useUser } from "../../context/UserContext1";
 import { useEffect } from "react";
 import { userFindById } from "../../api/user";
 import { storageSave } from "../../utils/storage";
