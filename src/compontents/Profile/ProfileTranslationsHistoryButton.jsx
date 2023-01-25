@@ -2,7 +2,7 @@ const ProfileTranslationsHistoryButton = ({translation, handleTranslationHistory
  return (
     <button onClick={() => handleTranslationHistoryButtonClicked(translation.id)}>
         <section>
-            <b>{translation.id}</b>
+            <b>{}</b>
         </section>
     </button>
  )

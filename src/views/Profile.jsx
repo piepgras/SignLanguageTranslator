@@ -44,7 +44,7 @@ const Profile = () => {
             <ProfilesForm/>
         </selection>
         <h4>Summary:</h4>
-        {user.translations && <p>Selected translation: { user.translation.translationId}</p>}
+        {user.translations && <p>Selected translation: { }</p>}
         </>
     )
 }
