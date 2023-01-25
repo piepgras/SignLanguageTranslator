@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import AppState from './state/AppState';
+import AppContext from './context/AppContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppState>
+    <AppContext>
       <App />
-    </AppState>
+    </AppContext>
   </React.StrictMode>
 );
 
