@@ -23,10 +23,11 @@ const LoginForm = () => {
     }, [user, navigate])
 
     const onSubmit = async ({ username }) => {
+
         setLoading(true);
         const [error, u] = await loginUser(username);
         if(error !== null){
-            setAPIError = error
+            setAPIError(error)
         }
         if(u !== null){
             storageSave(STORAGE_KEY_USER, u)

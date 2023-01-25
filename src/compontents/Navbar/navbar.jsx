@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 import { useUser } from "../../context/UserContext"
 
 const Navbar = () => {
-const user = useUser()
+    const user = useUser()
 
     return (
         <nav>
@@ -10,15 +10,15 @@ const user = useUser()
                 <li>Translations</li>
             </ul>
 
-            { user !== null && 
+            {user !== null &&
                 <ul>
-                <li>
-                    <NavLink to="/translation">Translation</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/profile">Login</NavLink>  
-                </li>
-            </ul>
+                    <li>
+                        <NavLink to="/translate">Translation</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/profile">Profile</NavLink>
+                    </li>
+                </ul>
             }
 
         </nav>
