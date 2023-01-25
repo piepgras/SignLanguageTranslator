@@ -1,4 +1,3 @@
-import TranslateButton from "../compontents/Translate/TranslateButton"
 import TranslateForm from "../compontents/Translate/TranslateForm"
 import withAuth from "../hoc/withAuth"
 import TranslateHeader from "../compontents/Translate/TranslateHeader"
