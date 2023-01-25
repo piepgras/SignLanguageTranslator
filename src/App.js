@@ -2,7 +2,7 @@ import './App.css';
 import Login from './views/Login';
 import Profile from './views/Profile';
 import Translator from './views/Translator';
-import Navbar from './compontents/Navbar/navbar'
+import Navbar from './compontents/Navbar/navbar';
 import {
   BrowserRouter,
   Routes,

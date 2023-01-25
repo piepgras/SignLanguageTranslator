@@ -6,10 +6,12 @@ import { useUser } from "../context/UserContext"
 import ProfileClearTranslationsHistoryButton from "../compontents/Profile/ProfileClearTranslationsHistoryButton"
 import ProfilesForm from "../compontents/Profile/ProfilesForm"
 import ProfileTranslationsHistoryButton from "../compontents/Profile/ProfileTranslationsHistoryButton"
+//import withAuth from "../hoc/withAuth"
+//import { useUser } from "../context/userContext"
 
 const Profile = () => {
 
-    const {user} = useUser()
+    //const {user} = useUser()
 
     const TRANSLATIONS = [{
         translation:1
@@ -36,6 +38,22 @@ const Profile = () => {
         <h1>Profile</h1>
         
         <ProfileHeader username={user.username}/>
+    // FIXME: Dummy data
+    const User = () => { return {
+        "id": 1,
+        "username": "dewaldels",
+        "translations": [
+          "hello world",
+          "react is fun"
+        ]
+      }}
+    const user = User();
+    
+    return (
+        <>
+        <h1>Profile</h1>
+        <ProfileHeader username={user.username}/>
+        <ProfileActions/>
         <ProfileTranslationHistory histories={user.translations}/>
         <ProfileClearTranslationsHistoryButton id="Translations history" key="1"/>
         <ProfileActions/>
@@ -49,4 +67,6 @@ const Profile = () => {
     )
 }
 
+export default Profile
+//export default withAuth (Profile)
 export default Profile
