@@ -1,9 +1,9 @@
-import TranslateButton from "../compontents/Translate/TranslateButton"
-import TranslateForm from "../compontents/Translate/TranslateForm"
+import TranslateButton from "../compontents/translate/TranslateButton"
+import TranslateForm from "../compontents/translate/TranslateForm"
 import withAuth from "../hoc/withAuth"
-import TranslateHeader from "../compontents/Translate/TranslateHeader"
-import TranslateActions from "../compontents/Translate/TranslateActions"
-import TranslateHistory from "../compontents/Translate/TranslateHistory"
+import TranslateHeader from "../compontents/translate/TranslateHeader"
+import TranslateActions from "../compontents/translate/TranslateActions"
+import TranslateHistory from "../compontents/translate/TranslateHistory"
 import { useUser } from "../state/UserState"
 
 const Translate = () => {

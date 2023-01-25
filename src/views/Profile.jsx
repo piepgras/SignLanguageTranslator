@@ -1,11 +1,11 @@
-import ProfileActions from "../compontents/Profile/profileActions"
-import ProfileHeader from "../compontents/Profile/profileHeader"
-import ProfileTranslationHistory from "../compontents/Profile/ProfileTranslationHistory"
+import ProfileActions from "../compontents/profile/ProfileActions"
+import ProfileHeader from "../compontents/profile/ProfileHeader"
+import ProfileTranslationHistory from "../compontents/profile/ProfileTranslationHistory"
 import withAuth from "../hoc/withAuth"
 import { useUser } from "../context/UserContext"
-import ProfileClearTranslationsHistoryButton from "../compontents/Profile/ProfileClearTranslationsHistoryButton"
-import ProfilesForm from "../compontents/Profile/ProfilesForm"
-import ProfileTranslationsHistoryButton from "../compontents/Profile/ProfileTranslationsHistoryButton"
+import ProfileClearTranslationsHistoryButton from "../compontents/profile/ProfileClearTranslationsHistoryButton"
+import ProfilesForm from "../compontents/profile/ProfilesForm"
+import ProfileTranslationsHistoryButton from "../compontents/profile/ProfileTranslationsHistoryButton"
 //import withAuth from "../hoc/withAuth"
 //import { useUser } from "../context/userContext"
 
@@ -33,21 +33,21 @@ const Profile = () => {
      
     });
 
-    return (
-        <>
-        <h1>Profile</h1>
+    // return (
+    //     <>
+    //     <h1>Profile</h1>
         
-        <ProfileHeader username={user.username}/>
-    // FIXME: Dummy data
-    const User = () => { return {
-        "id": 1,
-        "username": "dewaldels",
-        "translations": [
-          "hello world",
-          "react is fun"
-        ]
-      }}
-    const user = User();
+    //     <ProfileHeader username={user.username}/>
+    // // FIXME: Dummy data
+    // const User = () => { return {
+    //     "id": 1,
+    //     "username": "dewaldels",
+    //     "translations": [
+    //       "hello world",
+    //       "react is fun"
+    //     ]
+    //   }}
+    const user = useUser();
     
     return (
         <>
@@ -67,6 +67,4 @@ const Profile = () => {
     )
 }
 
-export default Profile
-//export default withAuth (Profile)
-export default Profile
+export default withAuth(Profile)
