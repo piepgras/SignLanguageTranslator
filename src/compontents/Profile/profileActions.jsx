@@ -1,12 +1,23 @@
-import { Link } from "react-router-dom";
+const ProfileActions = ({logoutUser, deleteUser}) => {
 
-const ProfileActions = () => {
+    const handleLogoutClick = () => {
+        if (window.confirm("Are you sure?")){
+            logoutUser()
+        }
+    }
+
+    const handleDeleteUser = () => {
+        if (window.confirm("YOU CAN'T JUST LEAVE?!")){
+            deleteUser()
+        }
+    }
+
     return (
-    <ul>
-        <li><Link to= "/translations">Translations</Link></li>
-        <li><button>Clear history</button></li>
-        <li><button>Logout</button></li>
-    </ul>
+        <ul>
+            <li><button>Clear history</button></li>
+            <li><button onClick={handleLogoutClick}>Logout</button></li>
+            <li><button onClick={handleDeleteUser}>Delete User</button></li>
+        </ul>
     )
 }
 export default ProfileActions

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form'
-import { loginUser } from '../../api/user'
+import { userLogin } from '../../api/user'
 import { storageRead, storageSave } from '../../utils/storage';
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '../../context/UserContext';
@@ -24,7 +24,7 @@ const LoginForm = () => {
 
     const onSubmit = async ({ username }) => {
         setLoading(true);
-        const [error, u] = await loginUser(username);
+        const [error, u] = await userLogin(username);
         if(error !== null){
             setAPIError = error
         }

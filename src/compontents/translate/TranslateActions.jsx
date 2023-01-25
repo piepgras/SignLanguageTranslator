@@ -1,6 +1,14 @@
-const TranslateActions = () => {
+import { useState } from "react"
+import { addTranslation } from "../../api/translate"
+import { useUser } from "../../context/UserContext"
+
+const TranslateActions = ({ translateInput, updateInputText }) => {
+
+
+
     return (
-        <p>Actions</p>
+        <>
+        </>
     )
 }
 export default TranslateActions

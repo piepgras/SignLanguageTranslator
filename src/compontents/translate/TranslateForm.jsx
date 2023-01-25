@@ -1,37 +1,58 @@
 import { useState } from "react"
+import TranslateActions from "./TranslateActions";
 import { addTranslation } from "../../api/translate";
-import { STORAGE_KEY_USER } from "../../const/storageKeys";
 import { useUser } from "../../context/UserContext";
-import { storageRead } from "../../utils/storage";
+import { useEffect } from "react";
+import { userFindById } from "../../api/user";
+import { storageSave } from "../../utils/storage";
+import { STORAGE_KEY_USER } from "../../const/storageKeys";
 
 const TranslateForm = () => {
-    const [inputText, setInputText] = useState(" ")
+    const [inputText, setInputText] = useState("")
     const [images, setImages] = useState([]);
-    let user = storageRead(STORAGE_KEY_USER)
+    const { user, setUser } = useUser()
 
+    useEffect(() => {
+        const findUser = async () => {
+            const [ error, latestUser ] = await userFindById(user.id)
+            if(error === null){
+                storageSave(STORAGE_KEY_USER, latestUser)
+                setUser(latestUser)
+            }
+        }
+        findUser()
+    },[ setUser,  user.id])
 
-const handleChange = (event) => {
-    setInputText(event.target.value);
-}
+    const handleInputChange = (event) => {
+        setInputText(event.target.value);
+    }
 
-function parseTranslation(str) {
-    return str.toLowerCase().replace(/[^a-z]/g, "");
-}
+    const handleTranslateClick = async () => {
+        if(inputText !== ""){
+            let parsedInputText = inputText.toLowerCase().replace(/[^a-z]/g, "");
+            const [error, updatedUser ] = await addTranslation(user, inputText)
+            
+            if(error !== null){
+                return
+            }
+            
+            storageSave(STORAGE_KEY_USER, updatedUser)
+            setUser(updatedUser)
 
-const handleButtonClick = () => {
-    let parsedTranslation = parseTranslation(inputText)
-    addTranslation(user, parsedTranslation)
-    setImages(parsedTranslation.split('').map((char, index) => (
-        <img className="sign" key={index} src={`../signs/${char}.png`} alt={char} />
-    )));
-}
+            setImages(parsedInputText.split('').map((char, index) => (
+                <img className="sign" key={index} src={`../signs/${char}.png`} alt={char} />
+            )));
+        } else {
+            alert("I can't translate nothing to sign language..")
+        }
+    }
 
     return (
-        <div>
-            <input type="text" onChange={handleChange} placeholder="What should I translate?" />
-            <button onClick={handleButtonClick}>Translate!</button>
-            { images }
-        </div>
+        <>
+        <input type="text" onChange={handleInputChange} placeholder="What should I translate?" />
+        <button onClick={handleTranslateClick}>Translate!!</button>
+        { images }
+        </>
     )
 }
 
