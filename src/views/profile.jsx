@@ -76,14 +76,14 @@ const Profile = () => {
             <ProfileHeader username={user.username} />
             <ProfileActions />
             <ProfileTranslationHistory histories={user.translations} />
-            <ProfileClearTranslationsHistoryButton id="Translations history" key="1" />
-            <ProfileActions />
-            <section id="translations-history">{"availableTranslations"}</section>
-            <selection id="translation-notes">
+            {/* <ProfileClearTranslationsHistoryButton id="Translations history" key="1" /> */}
+            {/* <ProfileActions /> */}
+            {/* <section id="translations-history">{"availableTranslations"}</section> */}
+            {/* <selection id="translation-notes">
                 <ProfileForm />
-            </selection>
-            <h4>Summary:</h4>
-            {user.translations && <p>Selected translation: </p>}
+            </selection> */}
+            {/* <h4>Summary:</h4> */}
+            {/* {user.translations && <p>Selected translation: </p>} */}
         </>
     )
 }
