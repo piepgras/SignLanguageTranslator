@@ -12,6 +12,9 @@ import ProfileTranslationsHistoryButton from "../compontents/profile/ProfileTran
 const Profile = () => {
 
     //const {user} = useUser()
+    
+    const { user, setUser } = useUser()
+
 
     const TRANSLATIONS = [{
         translation:1
@@ -45,22 +48,22 @@ const Profile = () => {
     //       "react is fun"
     //     ]
     //   }}
-    const user = useUser();
+    //const user = useUser();
     
     return (
         <>
-        <h1>Profile</h1>
+        {/* <h1>Profile</h1> */}
         <ProfileHeader username={user.username}/>
         <ProfileActions/>
         <ProfileTranslationHistory histories={user.translations}/>
-        <ProfileClearTranslationsHistoryButton id="Translations history" key="1"/>
+        {/* <ProfileClearTranslationsHistoryButton id="Translations history" key="1"/>
         <ProfileActions/>
         <section id="translations-history">{"availableTranslations"}</section>
         <selection id="translation-notes">
             <ProfileForm/>
         </selection>
         <h4>Summary:</h4>
-        {user.translations && <p>Selected translation: { }</p>}
+        {user.translations && <p>Selected translation: { }</p>} */}
         </>
     )
 }
