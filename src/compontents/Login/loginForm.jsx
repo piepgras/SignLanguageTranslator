@@ -11,9 +11,9 @@ const LoginForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const { user, setUser } = useUser()
     const navigate = useNavigate()
-
-    const [loading, setLoading] = useState(false);
-    const [APIError, setAPIError] = useState(null);
+    
+    const [ loading, setLoading] = useState(false);
+    const [ APIError, setAPIError ] = useState(null);
 
     useEffect(() => {
         if (user !== null) {
