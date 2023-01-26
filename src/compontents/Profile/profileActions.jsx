@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { translationClearHistory } from '../../api/translate'
 import { STORAGE_KEY_USER } from "../../const/storageKeys"
