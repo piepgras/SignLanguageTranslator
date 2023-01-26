@@ -6,7 +6,7 @@ const ProfileTranslationHistory = ({histories}) => {
     
     return (
 
-        <section className="col-3 " >
+        <section className="col-4 " >
         <h6 className="text-light"> Your translation history</h6>
         <div className="card shadow p-1">
         {historyList.length===0 && <p> You have no tranlations yet.</p>}
