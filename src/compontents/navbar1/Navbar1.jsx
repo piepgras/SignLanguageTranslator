@@ -3,7 +3,7 @@ import { useUser } from "../../context/UserContext"
 
 const Navbar = () => {
     const {user} = useUser()
-
+  
     return (
         // <nav>
         //     <ul>
