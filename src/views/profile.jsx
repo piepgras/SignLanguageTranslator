@@ -68,7 +68,7 @@ const Profile = () => {
     //       "react is fun"
     //     ]
     //   }}
-  
+   
 
     return (
         <>

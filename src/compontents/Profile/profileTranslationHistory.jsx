@@ -13,6 +13,7 @@ const ProfileTranslationHistory = ({histories}) => {
             <ul  className="list-group list-group-flush">
                 {historyList}
             </ul>
+            
             </div>
         </section>
     )
