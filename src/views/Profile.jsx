@@ -4,6 +4,10 @@ import ProfileTranslationHistory from "../components/profile/ProfileTranslationH
 import withAuth from "../hoc/withAuth"
 import { useUser } from "../context/UserContext"
 import ProfileTranslationsHistoryButton from "../components/profile/ProfileTranslationsHistoryButton"
+import { storageSave } from "../utils/storage"
+import { STORAGE_KEY_USER } from "../const/storageKeys"
+import { userDelete } from "../api/user"
+
 //import withAuth from "../hoc/withAuth"
 //import { useUser } from "../context/userContext"
 
@@ -12,7 +16,6 @@ const Profile = () => {
     //const {user} = useUser()
 
     const { user, setUser } = useUser()
-
 
     const TRANSLATIONS = [{
         translation: 1
@@ -57,7 +60,6 @@ const Profile = () => {
 
                 <hr />
                 <div className="row">
-                    <ProfileActions />
                     <ProfileTranslationHistory histories={user.translations} />
                 </div>
                 {/* <ProfileClearTranslationsHistoryButton id="Translations history" key="1"/>
