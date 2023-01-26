@@ -1,9 +1,10 @@
 import { STORAGE_KEY_USER } from "../const/storageKeys";
-import { useUser } from "../context/UserContext1";
+import { useUser } from "../context/UserContext";
 import { storageRead } from "../utils/storage";
 import { createHeader } from "./index";
 
 const API_URL = process.env.REACT_APP_API_URL
+
 
 export const addTranslation = async (user, translation) => {
     console.log(user.username + " " + translation)
@@ -28,6 +29,7 @@ export const addTranslation = async (user, translation) => {
     }
 }
 
+
 export const deleteEntireUser = async (user) => {
     try {
         const response = await fetch(`${API_URL}/${user.id}`, {
@@ -46,18 +48,24 @@ export const deleteEntireUser = async (user) => {
         return [error.message, null]
     }
 }
-// FIX THIS
-// export const deleteTranslation = async (translation) => {
-//     try {
-//         translation.status = "inactive";
-//         const response = await fetch(`${API_URL}` + translation.id, {
-//             method: 'PATCH',
-//             headers: createHeader(),
-//             body: JSON.stringify(translation)
-//         })
-//         const data = await response.json()
-//         return data;
-//     } catch (error) {
-//         return [error.message, null]
-//     }
-// }
+
+export const clearTranslationHistory = async (userid) => {
+    try {
+        const response = await fetch(`${API_URL}/${userid}`, {
+            method: 'PATCH',
+            headers: createHeader(),
+            body: JSON.stringify({
+                translations: []
+            })
+        })
+
+        if(!response.ok){
+            throw new Error("Could not clear translation history")
+        }
+
+        const result = await response.json()
+        return [ null, result ]
+    } catch (error) {
+        return [error.message, null]
+    }
+}
