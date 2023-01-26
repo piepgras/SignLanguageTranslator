@@ -32,7 +32,7 @@ const TranslateForm = () => {
 
 
         setImages(parsedTranslationForImages.split('').map((char, index) => (
-            <img className="sign" key={index} src={`../signs/${char}.png`} alt={char} />
+            <div className="float-start"><img className="sign" key={index} src={`../signs/${char}.png`} alt={char} /><p>{char}</p></div>
         )));
     }
 
@@ -47,7 +47,6 @@ const TranslateForm = () => {
                         </label>
                         <input type="text" className='form-control' onChange={handleChange} placeholder="What should I translate?" />
                         <button type="submit" className='btn btn-outline-primary' style={{ color: 'white' }} onClick={handleButtonClick}>Translate!</button>
-
                     </div>
                     </div>
                 </div>
