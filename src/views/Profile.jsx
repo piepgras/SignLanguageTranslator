@@ -1,5 +1,5 @@
-import ProfileActions from "../compontents/profile/profileActions"
-import ProfileHeader from "../compontents/profile/profileHeader"
+import ProfileActions from "../compontents/profile/ProfileActions"
+import ProfileHeader from "../compontents/profile/ProfileHeader"
 import ProfileTranslationHistory from "../compontents/profile/ProfileTranslationHistory"
 import withAuth from "../hoc/withAuth"
 import { useUser } from "../context/UserContext"
