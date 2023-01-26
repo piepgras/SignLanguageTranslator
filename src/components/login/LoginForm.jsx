@@ -51,13 +51,14 @@ const LoginForm = () => {
                             <label className="input-group-text" >
                                 <img className="" src="./keyboard.png" alt="keyboard" width="40" height="40" />
                             </label>
-                            <input className="control form-control" type="text" {...register("username", { required: true })} placeholder="What is your name?" />
+                            <input className="control form-control" type="text" {...register("username", { required: true,maxLength:10 })} placeholder="What is your name?" />
                             <button className='btn btn-outline-primary' style={{color:'white'}} type="submit" disabled={loading}>Login</button>
                         </div>
                         <div>
                             {loading && <p>Logging in...</p>}
                             {APIError && <p>{APIError}</p>}
-                            {(errors.username && errors.username.type === 'required') && <span className='m-2'>User name required!</span>}
+                            {(errors.username && errors.username.type === 'required') && <span className=' text-light m-2'>User name required!</span>}
+                            {(errors.username && errors.username.type === 'maxLength') && <span className=' text-light m-2'>User name too long (max. 10)!</span>}
                         </div>
                     </div>
                     <div className='col-2'></div>
