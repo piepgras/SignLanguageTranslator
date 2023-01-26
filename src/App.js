@@ -8,12 +8,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
-        <Navbar/>
+      <Navbar />
+      <div className="container">
+
         <Routes>
-          <Route path="/" element={ <Login/> } />
-          <Route path="/translate" element={ <Translate/> } />
-          <Route path="/profile" element={ <Profile/> } />
+          <Route path="/" element={<Login />} />
+          <Route path="/translate" element={<Translate />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </BrowserRouter>

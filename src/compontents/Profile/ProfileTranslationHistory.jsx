@@ -6,12 +6,15 @@ const ProfileTranslationHistory = ({histories}) => {
     
     return (
 
-        <section>
-            <h3>Your translation history</h3>
-            <ul>
+        <section className="col-3 " >
+        <h6 className="text-light"> Your translation history</h6>
+        <div className="card shadow p-1">
+        {historyList.length===0 && <p> You have no tranlations yet.</p>}
+        <ul className="list-group list-group-flush">
                 {historyList}
-            </ul>
-        </section>
+                </ul>
+        </div>
+      </section>
     )
 }
 export default ProfileTranslationHistory
