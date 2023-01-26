@@ -1,8 +1,8 @@
 import './App.css';
-import Login from './views/Login';
-import Profile from './views/Profile';
-import Translate from './views/Translate';
-import Navbar from './compontents/navbar/Navbar';
+import Login from './views/login';
+import Profile from './views/profile';
+import Translate from './views/translate';
+import Navbar from './compontents/navbar/navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
