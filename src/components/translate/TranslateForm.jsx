@@ -18,12 +18,9 @@ const TranslateForm = () => {
         setInputText(event.target.value);
     }
 
-    function parseTranslation(str) {
-        return str.toLowerCase().replace(/[^a-z]/g, "");
-    }
-
     const handleButtonClick = async () => {
-        let parsedTranslation = parseTranslation(inputText)
+        let parsedTranslation = inputText.toLowerCase().replace(/[^a-z]/g, " ");
+        let parsedTranslationForImages = inputText.toLowerCase().replace(/[^a-z]/g, "-");
         const [ error,updatedUser] =  await addTranslation(storageUser, parsedTranslation)
         
         //Check for error
@@ -34,7 +31,7 @@ const TranslateForm = () => {
         setUser(updatedUser)
 
 
-        setImages(parsedTranslation.split('').map((char, index) => (
+        setImages(parsedTranslationForImages.split('').map((char, index) => (
             <img className="sign" key={index} src={`../signs/${char}.png`} alt={char} />
         )));
     }

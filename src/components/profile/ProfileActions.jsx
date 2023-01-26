@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { translationClearHistory } from '../../api/translate'
+import { userDelete } from "../../api/user";
 import { STORAGE_KEY_USER } from "../../const/storageKeys"
 import { useUser } from "../../context/UserContext";
 import { storageSave, storageDelete } from "../../utils/storage";
@@ -15,6 +16,17 @@ const ProfileActions = () => {
       setUser(null)
     }
   }
+
+  const handleDeleteUserClick = () => {
+    if (window.confirm("YOU CAN'T JUST LEAVE?!")){
+      
+      storageDelete(STORAGE_KEY_USER)
+      setUser(null)
+      userDelete(user)
+    }
+  }
+
+
   const handleClearHistoryClick = async () => {
 
     if (!window.confirm('Are you sure?\nThis can not be undone')) {
@@ -34,11 +46,13 @@ const ProfileActions = () => {
   }
 
 
+
   return (
     <div className="col-1">
       {/* <li><Link to= "/translations">Translations</Link></li> */}
       <div className="row"><button className="btn btn-sm my-button m-1" onClick={handleClearHistoryClick}>Clear history</button></div>
-      <div className="row"><button className="btn btn-sm my-button m-1"  onClick={handleLogoutClick}>Logout</button></div>
+      <div className="row"><button className="btn btn-sm my-button m-1" onClick={handleLogoutClick}>Logout</button></div>
+      <div className="row"><button className="btn btn-sm my-button m-1" onClick={handleDeleteUserClick}>DELETE USER</button></div>
     </div>
   )
 }

@@ -10,7 +10,6 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <div className="container">
-
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/translate" element={<Translate />} />

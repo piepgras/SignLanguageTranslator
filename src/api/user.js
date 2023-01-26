@@ -66,3 +66,22 @@ export const userById = async (userId) => {
         return [error.message, null]
     }
 }
+
+export const userDelete = async (user) => {
+    try {
+        const response = await fetch(`${API_URL}/${user.id}`, {
+        method: 'DELETE',
+        headers: createHeader()
+    })
+
+    if(!response.ok){
+        throw new Error("Could not delete user: " + user.username)
+    }
+
+    const result = await response.json()
+    return [ null, result ]
+        
+    } catch (error) {
+        return [error.message, null]
+    }
+}
