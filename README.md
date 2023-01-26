@@ -10,15 +10,15 @@ The app is capable of translating characters a-z into sign language represented 
 
 - Clone repository
 - Navigate to repository root using a CLI
-- Run commands:
-    npm install react-router-dom
-    npm install react-dotenv
+- Run commands:<br/>
+    npm install react-router-dom<br/>
+    npm install react-dotenv<br/>
     npm install react-hook-form
 - Add .env file to root
-- In .env file add API URL and API KEY with names:
-    REACT_APP_API_KEY
+- In .env file add API URL and API KEY with names:<br/>
+    REACT_APP_API_KEY<br/>
     REACT_APP_API_URL
-- We used this API: https://github.com/dewald-els/noroff-assignment-api
+- We used this API: https://github.com/dewald-els/noroff-assignment-api<br/>
     Host it on something like glitch.com
 - Run 'npm start' to start the server
 
@@ -52,6 +52,6 @@ src
 ```
 
 #### Contributors:
-MissSundebo    https://github.com/MissSundebo
-Farhang Younis https://github.com/compsci-78
+MissSundebo    https://github.com/MissSundebo<br/>
+Farhang Younis https://github.com/compsci-78<br/>
 piepgras       https://github.com/piepgras
