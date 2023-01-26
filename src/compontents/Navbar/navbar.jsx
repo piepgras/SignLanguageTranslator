@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import { useUser } from "../../context/userContext_1"
+import { useUser } from "../../context/UserContext"
 
 const Navbar = () => {
     const {user} = useUser()

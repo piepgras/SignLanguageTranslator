@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { addTranslation } from "../../api/translate";
 import { STORAGE_KEY_USER } from "../../const/storageKeys";
-import { useUser } from "../../context/userContext_1";
+import { useUser } from "../../context/UserContext";
 import { storageRead,storageSave } from "../../utils/storage";
 
 const TranslateForm = () => {
