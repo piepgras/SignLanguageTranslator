@@ -1,0 +1,16 @@
+.my-button{
+    background-color: #008B8B;
+    border: none;
+    color: white;
+
+}
+
+.my-button:hover {
+background-color: rgb(0, 110, 255);
+color: white;
+}
+
+.sign {
+    height: 60px;
+    width: 60px;
+}

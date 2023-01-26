@@ -10,9 +10,11 @@ const Translate = () => {
     const { user } = useUser()
     return (
         <>
-        <h1>Translate</h1>
-        <TranslateHeader username={ user.username }/>
+        <div className="animate__animated animate__fadeInLeft">
+        {/* <h1>Translate</h1> */}
+        {/* <TranslateHeader username={ user.username }/> */}
         <TranslateForm />
+        </div>
         </>
     )
 }

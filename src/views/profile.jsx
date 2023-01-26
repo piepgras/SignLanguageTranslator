@@ -72,10 +72,15 @@ const Profile = () => {
 
     return (
         <>
-            <h1>Profile</h1>
+            {/* <h1>Profile</h1> */}
+            <div className="animate__animated animate__fadeInLeft">
+            <br/>
             <ProfileHeader username={user.username} />
+            <hr />
+            <div className="row">
             <ProfileActions />
             <ProfileTranslationHistory histories={user.translations} />
+            </div>
             {/* <ProfileClearTranslationsHistoryButton id="Translations history" key="1" /> */}
             {/* <ProfileActions /> */}
             {/* <section id="translations-history">{"availableTranslations"}</section> */}
@@ -84,6 +89,7 @@ const Profile = () => {
             </selection> */}
             {/* <h4>Summary:</h4> */}
             {/* {user.translations && <p>Selected translation: </p>} */}
+            </div>
         </>
     )
 }

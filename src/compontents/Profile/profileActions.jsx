@@ -6,6 +6,7 @@ import { storageSave, storageDelete } from "../../utils/storage";
 
 const ProfileActions = () => {
   const { user, setUser } = useUser()
+  
   const handleLogoutClick = () => {
     if (window.confirm('Are you sure?')) {
       //send an event to the parent
@@ -33,11 +34,11 @@ const ProfileActions = () => {
 
 
   return (
-    <ul>
+    <div className="col-1">
       {/* <li><Link to= "/translations">Translations</Link></li> */}
-      <li><button onClick={handleClearHistoryClick}>Clear history</button></li>
-      <li><button onClick={handleLogoutClick}>Logout</button></li>
-    </ul>
+      <div className="row"><button className="btn btn-sm my-button m-1" onClick={handleClearHistoryClick}>Clear history</button></div>
+      <div className="row"><button className="btn btn-sm my-button m-1"  onClick={handleLogoutClick}>Logout</button></div>
+    </div>
   )
 }
 export default ProfileActions

@@ -1,7 +1,7 @@
 const TranslateHeader = ({username}) => {
     return (
         <header>
-            <h2>wb { username }</h2>
+            <h2 className="text-light">Welcome { username }</h2>
         </header>
     )
 }
