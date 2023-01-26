@@ -55,7 +55,7 @@ const LoginForm = () => {
                             <button className='btn btn-outline-primary' style={{color:'white'}} type="submit" disabled={loading}>Login</button>
                         </div>
                         <div>
-                            {loading && <p>Logging in...</p>}
+                            {loading && <p className='text-light'>Logging in...</p>}
                             {APIError && <p>{APIError}</p>}
                             {(errors.username && errors.username.type === 'required') && <span className=' text-light m-2'>User name required!</span>}
                             {(errors.username && errors.username.type === 'maxLength') && <span className=' text-light m-2'>User name too long (max. 10)!</span>}
