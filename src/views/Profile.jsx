@@ -60,6 +60,7 @@ const Profile = () => {
 
                 <hr />
                 <div className="row">
+                    <ProfileActions />
                     <ProfileTranslationHistory histories={user.translations} />
                 </div>
                 {/* <ProfileClearTranslationsHistoryButton id="Translations history" key="1"/>
