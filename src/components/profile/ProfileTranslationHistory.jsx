@@ -4,7 +4,7 @@
 import ProfileTranslationHistoryItem from "./ProfileTranslationHistoryItem"
 
 // Maps ProfileTranslationHistoryItems into a unordered list
-// To display a users translation history!
+// To display a users translation history (In reverse order / newest first)!
 const ProfileTranslationHistory = ({ history }) => {
     
   const historyList = history.slice(0).reverse().map((history, index) => <ProfileTranslationHistoryItem key={index + '-' + history} history={history}/>)

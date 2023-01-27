@@ -22,9 +22,9 @@ const TranslateForm = () => {
 
     // Handles translate button click.
     // Parses three strings:
+    //   - no special chars, spaces or numbers (used to make sure we should translate)
     //   - no special chars or numbers (used for API)
     //   - no special chars or numbers with space replaced with - (used for image display)
-    //   - no special chars, spaces or numbers (used to make sure we should translate)
     const handleTranslateButtonClick = async () => {
 
         let parsedCheckString = inputText.toLowerCase().replace(/[^a-zA-Z]/g, "")
