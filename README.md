@@ -64,7 +64,7 @@ Review translation history and clear it if you wish.
 │   │   │   └ ProfileTranslationHistoryItem.jsx
 │   │   │
 │   │   └───translate
-│   │       └TranslateForm.jsx
+│   │       └ TranslateForm.jsx
 │   │
 │   ├───const
 │   │   └ storageKeys.js
