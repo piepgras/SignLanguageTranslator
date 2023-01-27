@@ -27,9 +27,9 @@ const TranslateForm = () => {
     //   - no special chars, spaces or numbers (used to make sure we should translate)
     const handleTranslateButtonClick = async () => {
 
-        let parsedCheckString = inputText.replace(/[^a-z]/g, "")
-        let parsedTranslation = inputText.toLowerCase().replace(/[^a-z]/g, " ")
-        let parsedTranslationForSigns = inputText.toLowerCase().replace(/[^a-z]/g, "-")
+        let parsedCheckString = inputText.toLowerCase().replace(/[^a-zA-Z]/g, "")
+        let parsedTranslation = inputText.toLowerCase().replace(/[^a-z A-Z]/g, "")
+        let parsedTranslationForSigns = inputText.toLowerCase().replace(/[^a-z A-Z]/g, "").replace(/[^a-zA-Z]/g, "-")
 
         if(parsedCheckString) {
 
