@@ -9,17 +9,15 @@ const Profile = () => {
     const { user } = useUser()
 
     return (
-        <>
-            <div className="animate__animated animate__fadeInLeft">
-                <br />
-                <ProfileHeader username={user.username} />
-                <hr />
-                <div className="row">
-                    <ProfileActions />
-                    <ProfileTranslationHistory history={user.translations} />
-                </div>
+        <div className="animate__animated animate__fadeInLeft">
+            <br />
+            <ProfileHeader username={user.username} />
+            <hr />
+            <div className="row">
+                <ProfileActions />
+                <ProfileTranslationHistory history={user.translations} />
             </div>
-        </>
+        </div>
     )
 }
 export default withAuth(Profile)

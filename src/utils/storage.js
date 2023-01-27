@@ -1,6 +1,5 @@
-
 const validateKey=(key)=>{
-    
+
     if (!key|| typeof key !=='string') {
         throw new Error ('Invalid storage key providerd')
     }  
@@ -22,7 +21,7 @@ export const storageRead=(key)=>{
     validateKey(key)
 
     const data = localStorage.getItem(key)
-    //const data = sessionStorage.getItem(key)
+
     if (data) {
         return JSON.parse(data)
     }
@@ -32,5 +31,4 @@ export const storageRead=(key)=>{
 export const storageDelete=(key)=>{
     validateKey(key)
     localStorage.removeItem(key)
-    //sessionStorage.removeItem(key)
 }

@@ -6,11 +6,10 @@ import { useState } from "react"
 
 const TranslateForm = () => {
     
-    const { setUser } = useUser()
-
+    let storageUser = storageRead(STORAGE_KEY_USER)
     const [inputText, setInputText] = useState(" ")
     const [images, setImages] = useState([]);
-    let storageUser = storageRead(STORAGE_KEY_USER)
+    const { setUser } = useUser()
 
     const handleChange = (event) => {
         setInputText(event.target.value);
