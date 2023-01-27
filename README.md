@@ -35,20 +35,69 @@ Review translation history and clear it if you wish.
 
 ### Structure (NOT COMPLETE)
 ```bash
-public
-└───signs
-src
-├───api
-├───compontents
-│   ├───login
-│   ├───profile
-│   └───translate
-├───const
-├───hoc
-│   └───withAuth.js
-├───state
-├───utils
-└───views
+root
+│
+└───public
+│   ├───signs
+│   │   └ sign .pngs
+│   │
+│   ├ .pngs & icons
+│   ├ index.html
+│   ├ manifest.json
+│   └ robots.txt
+│   
+└───src
+│   ├───api
+│   │   ├ index.js
+│   │   ├ translate.js
+│   │   └ user.js
+│   │
+│   ├───components
+│   │   ├───login
+│   │   │   └ LoginForm.jsx
+│   │   │
+│   │   ├───navbar
+│   │   │   └ Navbar.jsx
+│   │   │
+│   │   ├───profile
+│   │   │   ├ ProfileActions.jsx
+│   │   │   ├ ProfileHeader.jsx
+│   │   │   ├ ProfileTranslationHistory.jsx
+│   │   │   └ ProfileTranslationHistoryItem.jsx
+│   │   │
+│   │   └───translate
+│   │       └TranslateForm.jsx
+│   │
+│   ├───const
+│   │   └ storageKeys.js
+│   │
+│   ├───context
+│   │   ├ AppContext.jsx
+│   │   └ UserContext.jsx
+│   │
+│   ├───hoc
+│   │   └ withAuth.js
+│   │
+│   ├───utils
+│   │   └ storage.js
+│   │
+│   ├───views
+│   │   ├ Login.jsx
+│   │   ├ Profile.jsx
+│   │   └ Translate.jsx
+│   │
+│   ├ App.css
+│   ├ App.js
+│   ├ App.test.js
+│   ├ index.css
+│   ├ index.js
+│   ├ reportWebVitals.js
+│   └ setupTests.js
+│
+├ .gitignore
+├ README.md
+├ package-lock.json
+├ pack
 ```
 
 #### Contributors:
