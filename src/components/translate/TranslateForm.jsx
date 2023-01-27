@@ -38,9 +38,24 @@ const TranslateForm = () => {
 
         // Maps each individual char and loads a image for the specific character ( - for space )
         setImages(parsedTranslationForSigns.split("").map((char, index) => (
-            <div className="float-start" key={index}>
-                <img className="sign" src={`../signs/${char}.png`} alt={char} />
-                <p>{char}</p>
+
+            <div className="float-start " key={index}>
+
+                <div className="">
+                    <div className="row ">
+                        <div className="col-12">
+
+                            <div className="d-flex justify-content-center"><img className=" sign" src={`../signs/${char}.png`} alt={char} /></div>
+                        </div>
+                    </div>
+                    <div className="row ">
+                        <div className="col-12">
+
+                            <div className="d-flex justify-content-center"><p>{char}</p></div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         )));
     }
