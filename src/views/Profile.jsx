@@ -11,9 +11,10 @@ const Profile = () => {
     return (
         <div className="animate__animated animate__fadeInLeft">
             <br />
+            <div className="row d-flex justify-content-center">
             <ProfileHeader username={user.username} />
-            <hr />
-            <div className="row">
+            </div>
+            <div className="row d-flex justify-content-center">
                 <ProfileActions />
                 <ProfileTranslationHistory history={user.translations} />
             </div>

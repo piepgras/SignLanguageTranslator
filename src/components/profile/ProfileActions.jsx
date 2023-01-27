@@ -53,7 +53,7 @@ const ProfileActions = () => {
 
   // Amazing Buttons
   return (
-    <div className="col-1">
+    <div className="col-1 ">
       <div className="row"><button className="btn btn-sm my-button m-1" onClick={handleClearHistoryClick}>Clear history</button></div>
       <div className="row"><button className="btn btn-sm my-button m-1" onClick={handleLogoutClick}>Logout</button></div>
       <div className="row"><button className="btn btn-sm my-button m-1" onClick={handleDeleteUserClick}>DELETE USER</button></div>

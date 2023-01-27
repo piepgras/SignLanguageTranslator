@@ -2,8 +2,9 @@
 
 const ProfileHeader = ({ username }) => {
     return (
-        <header>
+        <header className="col-9" >
             <h5 className="text-light">Welcome home, {username}! Hope you don't get lost again..</h5>
+            <hr/>
         </header>
     )
 }
