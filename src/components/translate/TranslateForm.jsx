@@ -21,28 +21,34 @@ const TranslateForm = () => {
     }
 
     // Handles translate button click.
-    // Passes two strings:
+    // Parses three strings:
     //   - no special chars or numbers (used for API)
     //   - no special chars or numbers with space replaced with - (used for image display)
+    //   - no special chars, spaces or numbers (used to make sure we should translate)
     const handleTranslateButtonClick = async () => {
 
-        let parsedTranslation = inputText.toLowerCase().replace(/[^a-z]/g, " ");
-        let parsedTranslationForSigns = inputText.toLowerCase().replace(/[^a-z]/g, "-");
-        const [ error, updatedUser] =  await addTranslation(storageUser, parsedTranslation)
+        let parsedCheckString = inputText.replace(/[^a-z]/g, "")
+        let parsedTranslation = inputText.toLowerCase().replace(/[^a-z]/g, " ")
+        let parsedTranslationForSigns = inputText.toLowerCase().replace(/[^a-z]/g, "-")
+
+        if(parsedCheckString) {
+
+            const [ error, updatedUser] =  await addTranslation(storageUser, parsedTranslation)
         
-        if (error !== null) { return }
+            if (error !== null) { return }
 
-        // Syncs UI and server state to properly display the new translation
-        storageSave(STORAGE_KEY_USER, updatedUser)
-        setUser(updatedUser)
+            // Syncs UI and server state to properly display the new translation
+            storageSave(STORAGE_KEY_USER, updatedUser)
+            setUser(updatedUser)
 
-        // Maps each individual char and loads a image for the specific character ( - for space )
-        setImages(parsedTranslationForSigns.split("").map((char, index) => (
-            <div className="float-start" key={index}>
-                <img className="sign" src={`../signs/${char}.png`} alt={char} />
-                <p>{char}</p>
-            </div>
-        )));
+            // Maps each individual char and loads a image for the specific character ( - for space )
+            setImages(parsedTranslationForSigns.split("").map((char, index) => (
+                <div className="float-start" key={index}>
+                    <img className="sign" src={`../signs/${char}.png`} alt={char} />
+                    <p>{char}</p>
+                </div>
+            )));
+        }
     }
 
     // Styling, button and field.
