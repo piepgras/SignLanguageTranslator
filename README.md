@@ -2,9 +2,8 @@
 https://farhanglovesgit.vercel.app/
 
 ## Description
-This is an alphabetical sign language translator built with ReactJS.<br/><br/>
-
-The app is capable of translating characters a-z into sign language represented by images. The app is also capable of creating and managing users.
+This is an alphabetical sign language translator built with ReactJS.<br/>
+This is an assignment as a part of the front-end course at Noroff's School for Witches and Wizards<br/>
 
 ### Usage
 Login Page:<br/>
