@@ -45,7 +45,7 @@ const TranslateForm = () => {
             setImages(parsedTranslationForSigns.split("").map((char, index) => (
                 <div className="float-start" key={index}>
                     <img className="sign" src={`../signs/${char}.png`} alt={char} />
-                    <p>{char}</p>
+                    <div className="img-char-align"><p>{char}</p></div>
                 </div>
             )));
         }

@@ -11,6 +11,10 @@ background-color: rgb(0, 110, 255);
 color: white;
 }
 
+.img-char-align {
+    text-align: center;
+}
+
 .sign {
     height: 60px;
     width: 60px;
