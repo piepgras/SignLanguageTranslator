@@ -1,3 +1,5 @@
+// AppContext.jsx provides the context for the app
+
 import UserProvider from "./UserContext";
 
 const AppContext = ({children}) => {

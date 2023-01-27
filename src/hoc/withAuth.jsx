@@ -1,3 +1,6 @@
+// withAuth.jsx handles the authority of the user
+// basically redirects to root if there isn't a user.
+
 import { useUser } from "../context/UserContext"
 import { Navigate } from "react-router-dom"
 

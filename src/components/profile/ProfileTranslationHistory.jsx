@@ -3,6 +3,8 @@
 
 import ProfileTranslationHistoryItem from "./ProfileTranslationHistoryItem"
 
+// Maps ProfileTranslationHistoryItems into a unordered list
+// To display a users translation history!
 const ProfileTranslationHistory = ({ history }) => {
     
   const historyList = history.map((history, index) => <ProfileTranslationHistoryItem key={index + '-' + history} history={history}/>)

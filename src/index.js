@@ -1,3 +1,5 @@
+// index.js is the initial instantiation of the entire app and the app context 
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
