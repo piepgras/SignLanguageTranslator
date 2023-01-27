@@ -25,25 +25,24 @@ const TranslateForm = () => {
     //   - no special chars or numbers (used for API)
     //   - no special chars or numbers with space replaced with - (used for image display)
     const handleTranslateButtonClick = async () => {
-        if(!inputText){
-            let parsedTranslation = inputText.toLowerCase().replace(/[^a-z]/g, " ");
-            let parsedTranslationForSigns = inputText.toLowerCase().replace(/[^a-z]/g, "-");
-            const [ error, updatedUser] =  await addTranslation(storageUser, parsedTranslation)
-            
-            if (error !== null) { return }
 
-            // Syncs UI and server state to properly display the new translation
-            storageSave(STORAGE_KEY_USER, updatedUser)
-            setUser(updatedUser)
+        let parsedTranslation = inputText.toLowerCase().replace(/[^a-z]/g, " ");
+        let parsedTranslationForSigns = inputText.toLowerCase().replace(/[^a-z]/g, "-");
+        const [ error, updatedUser] =  await addTranslation(storageUser, parsedTranslation)
+        
+        if (error !== null) { return }
 
-            // Maps each individual char and loads a image for the specific character ( - for space )
-            setImages(parsedTranslationForSigns.split("").map((char, index) => (
-                <div className="float-start" key={index}>
-                    <img className="sign" src={`../signs/${char}.png`} alt={char} />
-                    <p>{char}</p>
-                </div>
-            )));
-        }
+        // Syncs UI and server state to properly display the new translation
+        storageSave(STORAGE_KEY_USER, updatedUser)
+        setUser(updatedUser)
+
+        // Maps each individual char and loads a image for the specific character ( - for space )
+        setImages(parsedTranslationForSigns.split("").map((char, index) => (
+            <div className="float-start" key={index}>
+                <img className="sign" src={`../signs/${char}.png`} alt={char} />
+                <p>{char}</p>
+            </div>
+        )));
     }
 
     // Styling, button and field.
