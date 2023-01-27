@@ -1,4 +1,6 @@
-const ProfileTranslationHistoryItem = ({history}) => {
+// ProfileTranslationHistoryItem.jsx
+
+const ProfileTranslationHistoryItem = ({ history }) => {
     return <li className="list-group-item">{history}</li>
 }
 export default ProfileTranslationHistoryItem;

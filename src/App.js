@@ -1,9 +1,13 @@
-import './App.css';
-import Login from './views/Login';
-import Profile from './views/Profile';
-import Translate from './views/Translate';
-import Navbar from './components/navbar/Navbar';
+// App.js handles the browser routing and
+// routes to root, profile and translate page.
+// Also instantiates the navigation bar.
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Navbar from './components/navbar/Navbar';
+import Translate from './views/Translate';
+import Profile from './views/Profile';
+import Login from './views/Login';
+import './App.css';
 
 function App() {
   return (

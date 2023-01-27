@@ -1,13 +1,15 @@
-import { STORAGE_KEY_USER } from "../const/storageKeys";
-import { useUser } from "../context/UserContext";
-import { storageRead } from "../utils/storage";
+// Translate.js is responsible for handling HTTP PATCH requests
+// which adds translations to users and clears their history.
+
 import { createHeader } from "./index";
 
 const API_URL = process.env.REACT_APP_API_URL
 
-
+// Adds a translation by passing it a user and translation.
+// Creates a HTTP PATCH request which patches the passed
+// translation onto the JSON of the specified user (by id).
+// Returns the result of the response or error.
 export const addTranslation = async (user, translation) => {
-    console.log(user.username + " " + translation)
     try {
         const response = await fetch(`${API_URL}/${user.id}`, {
             method: 'PATCH',
@@ -18,7 +20,7 @@ export const addTranslation = async (user, translation) => {
         })
 
         if(!response.ok){
-            throw new Error("Could not update the translation")
+            throw new Error("Could not patch the translation!")
         }
 
         const result = await response.json()
@@ -29,6 +31,10 @@ export const addTranslation = async (user, translation) => {
     }
 }
 
+// Clears the translation history by passing it a userId.
+// Creates a HTTP PATCH request which patches the translations
+// of a (by id) specified user with an empty [] to clear its history.
+// Returns the result of the response or error.
 export const translationClearHistory = async (userId) => {
     try {
         const response = await fetch(`${API_URL}/${userId}`,
@@ -41,8 +47,9 @@ export const translationClearHistory = async (userId) => {
             })
 
         if (!response.ok) {
-            throw new Error('Could not update the translation')
+            throw new Error('Could not patch the translation history!')
         }
+
         const result = await response.json()
         return [null, result]
 
@@ -50,18 +57,3 @@ export const translationClearHistory = async (userId) => {
         return [error.message, null]
     }
 }
-
-// export const deleteTranslation = async (translation) => {
-//     try {
-//         translation.status = "inactive";
-//         const response = await fetch(`${API_URL}` + translation.id, {
-//             method: 'PATCH',
-//             headers: createHeader(),
-//             body: JSON.stringify(translation)
-//         })
-//         const data = await response.json()
-//         return data;
-//     } catch (error) {
-//         return [error.message, null]
-//     }
-// }

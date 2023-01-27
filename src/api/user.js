@@ -1,72 +1,94 @@
+// user.js is responsible for user creation, login, checking
+// finding and deletion.
+
 import {createHeader} from '.'
+
 const API_URL = process.env.REACT_APP_API_URL
 
-
-const checkForUser = async (username) => {
-    try {
-        const response = await fetch(`${API_URL}?username=${username}`)
-        if (!response.ok) {
-            throw new Error("User not found")
-        }
-        const data = await response.json()
-        
-        console.log("data:",data)
-        
-        return [null, data]
-    } catch (error) {
-        return [error.message, null]
-    }
-}
-
-const createUser = async (username) => {
+// Creates a user.
+// Creates a HTTP POST request which creates a new user
+// with the specified username.
+// Returns a new user.
+const userCreate = async (name) => {
     try {
         const response = await fetch(`${API_URL}`, {
             method: 'POST',
             headers: createHeader(),
-            body: JSON.stringify({username: username, translations: [] })
+            body: JSON.stringify({
+                username: name,
+                translations: []
+            })
         })
 
         if (!response.ok) {
-            throw new Error(`Could not create user with username ` + username)
+            throw new Error("Could not create user with username" + name + "!")
         }
-        const data = await response.json()
-        return [null, data]
+
+        const user = await response.json()
+        return [null, user]
+        
     } catch (error) {
         return [error.message, null]
     }
 }
 
-export const loginUser = async (username) => {
+// Handles user login.
+// Checks if a user exists, if it does it will be logged in.
+// If it doesn't exist it will be created and then logged in.
+// Returns error or pop user. 
+export const userLogin = async (username) => {
   
-    const [fetchError, user] = await checkForUser(username)
+    const [fetchError, user] = await userCheck(username)
 
     if (fetchError !== null) {
         return [fetchError, null]
     }
 
     if (user.length > 0) {
-        // We want to return the use from API as an object not an awway
         return [null, user.pop()]
     }
 
-    return await createUser(username)
+    return await userCreate(username)
 }
 
-export const userById = async (userId) => {
+// Checks if a user exists.
+// Returns a user if it exists otherwise it returns error.
+const userCheck = async (username) => {
     try {
-        console.log('userid:', userId)
-        const response = await fetch(`${API_URL}/${userId}`)
-        if (!response.ok) {
-            throw new Error("Coud not fetch user")
-        }
-        const user = await response.json()
+        const response = await fetch(`${API_URL}?username=${username}`)
 
+        if (!response.ok) {
+            throw new Error("User not found!")
+        }
+
+        const user = await response.json()      
         return [null, user]
+
     } catch (error) {
         return [error.message, null]
     }
 }
 
+// Finds user by id.
+// Returns a specific user or an error depending on the users existence
+export const userFindById = async (userId) => {
+    try {
+        const response = await fetch(`${API_URL}/${userId}`)
+
+        if (!response.ok) {
+            throw new Error("Could not find user!")
+        }
+
+        const user = await response.json()
+        return [null, user]
+
+    } catch (error) {
+        return [error.message, null]
+    }
+}
+
+// Deletes a user.
+// Creates a HTTP DELETE request which removes a user from the API.
 export const userDelete = async (user) => {
     try {
         const response = await fetch(`${API_URL}/${user.id}`, {
@@ -75,7 +97,7 @@ export const userDelete = async (user) => {
     })
 
     if(!response.ok){
-        throw new Error("Could not delete user: " + user.username)
+        throw new Error("Could not delete user: " + user.username + "!")
     }
 
     const result = await response.json()

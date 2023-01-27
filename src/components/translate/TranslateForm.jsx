@@ -1,26 +1,24 @@
-import { useState } from "react"
-import { addTranslation } from "../../api/translate";
-import { STORAGE_KEY_USER } from "../../const/storageKeys";
-import { useUser } from "../../context/UserContext";
 import { storageRead,storageSave } from "../../utils/storage";
+import { STORAGE_KEY_USER } from "../../const/storageKeys";
+import { addTranslation } from "../../api/translate";
+import { useUser } from "../../context/UserContext";
+import { useState } from "react"
 
 const TranslateForm = () => {
     
-    //const { user, setUser } = useUser()
-    const { user, setUser } = useUser()
+    const { setUser } = useUser()
 
     const [inputText, setInputText] = useState(" ")
     const [images, setImages] = useState([]);
     let storageUser = storageRead(STORAGE_KEY_USER)
 
-
     const handleChange = (event) => {
         setInputText(event.target.value);
     }
 
-    const handleButtonClick = async () => {
+    const handleTranslateButtonClick = async () => {
         let parsedTranslation = inputText.toLowerCase().replace(/[^a-z]/g, " ");
-        let parsedTranslationForImages = inputText.toLowerCase().replace(/[^a-z]/g, "-");
+        let parsedTranslationForSigns = inputText.toLowerCase().replace(/[^a-z]/g, "-");
         const [ error,updatedUser] =  await addTranslation(storageUser, parsedTranslation)
         
         //Check for error
@@ -30,9 +28,11 @@ const TranslateForm = () => {
         // Update context state.
         setUser(updatedUser)
 
-
-        setImages(parsedTranslationForImages.split('').map((char, index) => (
-            <div className="float-start"><img className="sign" key={index} src={`../signs/${char}.png`} alt={char} /><p>{char}</p></div>
+        setImages(parsedTranslationForSigns.split('').map((char, index) => (
+            <div className="float-start" key={index}>
+                <img className="sign" src={`../signs/${char}.png`} alt={char} />
+                <p>{char}</p>
+            </div>
         )));
     }
 
@@ -46,7 +46,7 @@ const TranslateForm = () => {
                             <img className="" src="./keyboard.png" alt="keyboard" width="40" height="40" />
                         </label>
                         <input type="text" className='form-control' onChange={handleChange} placeholder="What should I translate?" />
-                        <button type="submit" className='btn btn-outline-primary' style={{ color: 'white' }} onClick={handleButtonClick}>Translate!</button>
+                        <button type="submit" className='btn btn-outline-primary' style={{ color: 'white' }} onClick={handleTranslateButtonClick}>Translate!</button>
                     </div>
                     </div>
                 </div>
@@ -66,5 +66,4 @@ const TranslateForm = () => {
         </>
     )
 }
-
 export default TranslateForm
