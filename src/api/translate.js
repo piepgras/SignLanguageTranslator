@@ -9,7 +9,14 @@ const API_URL = process.env.REACT_APP_API_URL
 // Creates a HTTP PATCH request which patches the passed
 // translation onto the JSON of the specified user (by id).
 // Returns the result of the response or error.
+// Shifts out the first element of the translations array
+// to stay within the limit of 10.
 export const addTranslation = async (user, translation) => {
+
+    if(user.translations.length >= 10) {
+        user.translations.shift()
+    }
+
     try {
         const response = await fetch(`${API_URL}/${user.id}`, {
             method: 'PATCH',

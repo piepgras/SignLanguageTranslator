@@ -7,7 +7,7 @@ import ProfileTranslationHistoryItem from "./ProfileTranslationHistoryItem"
 // To display a users translation history!
 const ProfileTranslationHistory = ({ history }) => {
     
-  const historyList = history.map((history, index) => <ProfileTranslationHistoryItem key={index + '-' + history} history={history}/>)
+  const historyList = history.slice(0).reverse().map((history, index) => <ProfileTranslationHistoryItem key={index + '-' + history} history={history}/>)
     
   return (
     <section className="col-8">
