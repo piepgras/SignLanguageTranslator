@@ -3,7 +3,7 @@ https://farhanglovesgit.vercel.app/
 
 ## Description
 This is an alphabetical sign language translator built with ReactJS.<br/>
-This is an assignment as a part of the front-end course at Noroff's School for Witches and Wizards<br/>
+This is an assignment as a part of the frontend course at Noroff's School for Witches and Wizards.<br/>
 
 ### Usage
 Login Page:<br/>

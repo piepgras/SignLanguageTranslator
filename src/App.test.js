@@ -1,3 +1,5 @@
+// App.test.js is a premade CRA file
+
 import { render, screen } from '@testing-library/react';
 import App from './App';
 

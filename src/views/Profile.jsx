@@ -1,3 +1,6 @@
+// Profile.jsx handles the view of the profile page
+// Loads the ProfileHeader, ProfileActions and ProfileTranslationHistory components
+
 import ProfileTranslationHistory from "../components/profile/ProfileTranslationHistory"
 import ProfileActions from "../components/profile/ProfileActions"
 import ProfileHeader from "../components/profile/ProfileHeader"
@@ -11,10 +14,9 @@ const Profile = () => {
     return (
         <div className="animate__animated animate__fadeInLeft">
             <br />
-            <div className="row d-flex justify-content-center">
             <ProfileHeader username={user.username} />
-            </div>
-            <div className="row d-flex justify-content-center">
+            <hr />
+            <div className="row">
                 <ProfileActions />
                 <ProfileTranslationHistory history={user.translations} />
             </div>
