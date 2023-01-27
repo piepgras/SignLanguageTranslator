@@ -1,13 +1,22 @@
 # Lost in Translation
+https://farhanglovesgit.vercel.app/
 
 ## Description
+This is an alphabetical sign language translator built with ReactJS.<br/><br/>
 
-This is an alphabetical sign language translator built with ReactJS.
+The app is capable of translating characters a-z into sign language represented by images. The app is also capable of creating and managing users.
 
-The app is capable of translating characters a-z into sign language represented by images. The app is also capable of creating and managing users.  
+### Usage
+Login Page:<br/>
+Prompted with a login form, type in a desired username (No password necessary).
+
+Translation Page:<br/>
+Input translations in text field and press the button.
+
+Profile Page:<br/>
+Review translation history and clear it if you wish.
 
 ### Setup
-
 - Clone repository
 - Navigate to repository root using a CLI
 - Run commands:<br/>
@@ -22,20 +31,9 @@ The app is capable of translating characters a-z into sign language represented 
     Host it on something like glitch.com
 - Run 'npm start' to start the server
 
-### Usage
-Login Page:
-Prompted with a login form, type in a desired username (No password necessary).
-
-Translation Page:
-Input translations in text field and press the button.
-
-Credits Page:
-Review translation history and clear it if you wish.
-
-
-### Structure (NOT COMPLETE)
+### Structure
 ```bash
-root
+.root
 │
 └───public
 │   ├───signs
@@ -97,7 +95,7 @@ root
 ├ .gitignore
 ├ README.md
 ├ package-lock.json
-├ pack
+└ pack
 ```
 
 #### Contributors:
